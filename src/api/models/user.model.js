@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre('save', async function (next) {
   try {
-    this.contraseña = await bcrypt.hash(this.contraseña, 10)
+    this.contraseña = await bcrypt.hashSync(this.contraseña, 10)
     next()
   } catch (error) {
     next(error)

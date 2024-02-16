@@ -10,7 +10,9 @@ const isAuth = async (req, res, next) => {
     user.contraseña = null;
     req.user = user;
     console.log("Usuario autenticado como registrado");
-    next()
+    if(next){
+      next()
+    }
   } catch (error) {
     next(error)
   }
